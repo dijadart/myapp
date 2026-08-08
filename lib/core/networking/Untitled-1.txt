@@ -1,0 +1,957 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'api_service.dart';
+
+// dart format off
+
+// **************************************************************************
+// RetrofitGenerator
+// **************************************************************************
+
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
+
+class _ApiService implements ApiService {
+  _ApiService(this._dio, {this.baseUrl, this.errorLogger});
+
+  final Dio _dio;
+
+  String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
+
+  @override
+  Future<UserModel> login(Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<UserModel>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'UserV2/login',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UserModel _value;
+    try {
+      _value = UserModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<dynamic> getCoursesRaw() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Courses',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<dynamic> getPaginatedCoursesRaw(int page, int perPage) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Courses/paginated',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<dynamic> sendForgotPasswordOtp(Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Email/forgot-password/send-otp',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<dynamic> verifyOtpResetPassword(Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Email/forgot-password/verify-otp-reset-password',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<void> changePassword(String userId, Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'User/changepassword/${userId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> editProfile(String id, Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'User/EditProfile/${id}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<FullUserModel> getUserById(String userId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<FullUserModel>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'User/${userId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FullUserModel _value;
+    try {
+      _value = FullUserModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<FullUserModel>> getBatchStudents(String batchId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<FullUserModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Enrollments/patch-students/${batchId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<FullUserModel> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => FullUserModel.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<BatchModel>> getBatches(String userId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<BatchModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Enrollments/student-batches/${userId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<BatchModel> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => BatchModel.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BatchesResponse> getInstructorBatches(String instructorId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BatchesResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Batches/instructor/${instructorId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BatchesResponse _value;
+    try {
+      _value = BatchesResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BatchesResponse> getAllBatches() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BatchesResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'BatchesV2',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BatchesResponse _value;
+    try {
+      _value = BatchesResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BatchesResponse> getPaginatedBatches({
+    int page = 1,
+    int perPage = 10,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'perPage': perPage,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BatchesResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'BatchesV2/paginated',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BatchesResponse _value;
+    try {
+      _value = BatchesResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<CourseModel> getCourseDetails(String courseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CourseModel>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Courses/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CourseModel _value;
+    try {
+      _value = CourseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<void> addCourse(
+    String courseName,
+    String courseDescription,
+    String materials,
+    int coursePrice,
+    int noOfSessions,
+    String courseCategory,
+    File file,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('Course_Name', courseName));
+    _data.fields.add(MapEntry('Course_Description', courseDescription));
+    _data.fields.add(MapEntry('Materials', materials));
+    _data.fields.add(MapEntry('Course_Price', coursePrice.toString()));
+    _data.fields.add(MapEntry('NoOfSessions', noOfSessions.toString()));
+    _data.fields.add(MapEntry('Course_Category', courseCategory));
+    _data.files.add(
+      MapEntry(
+        'file',
+        MultipartFile.fromFileSync(
+          file.path,
+          filename: file.path.split(Platform.pathSeparator).last,
+        ),
+      ),
+    );
+    final _options = _setStreamType<void>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'Courses',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> editCourse(String courseId, Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Courses/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<dynamic> getHomeworksRaw(String username, String courseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Homeworks/homeworks/${username}/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<void> deleteHomework(String homeworkId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Homeworks/deleteHomework/${homeworkId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> uploadHomework(
+    String courseId,
+    String stdUsername,
+    String displayedName,
+    int level,
+    int session,
+    File file,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'courseId': courseId,
+      r'stdUsername': stdUsername,
+      r'displayedName': displayedName,
+      r'level': level,
+      r'session': session,
+    };
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.files.add(
+      MapEntry(
+        'file',
+        MultipartFile.fromFileSync(
+          file.path,
+          filename: file.path.split(Platform.pathSeparator).last,
+        ),
+      ),
+    );
+    final _options = _setStreamType<void>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'Homeworks/upload-homework',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<AttendanceResponse> recordAttendance(AttendanceRequest request) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<AttendanceResponse>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Attendan/RecordAttendance',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AttendanceResponse _value;
+    try {
+      _value = AttendanceResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AttendancePercentageResponse> getAttendancePercentage(
+    String courseId,
+    String stdId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AttendancePercentageResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Attendan/student-attendance-percentage/${courseId}/${stdId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AttendancePercentageResponse _value;
+    try {
+      _value = AttendancePercentageResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<AttendancePercentageResponse> getStudentAttendanceCount(
+    String batchId,
+    String stdId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<AttendancePercentageResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Attendan/StudentAttendanceCount/${batchId}/${stdId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late AttendancePercentageResponse _value;
+    try {
+      _value = AttendancePercentageResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<void> changeProfilePic(String userId, File profilePic) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.files.add(
+      MapEntry(
+        'picture',
+        MultipartFile.fromFileSync(
+          profilePic.path,
+          filename: profilePic.path.split(Platform.pathSeparator).last,
+        ),
+      ),
+    );
+    final _options = _setStreamType<void>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'multipart/form-data',
+          )
+          .compose(
+            _dio.options,
+            'User/changeProfilePic/${userId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<dynamic> getNotificationsRaw(String username) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Notifications/${username}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<void> markAsSeen(int id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Notifications/markAsSeen/${id}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<List<AttendanceData>> getAttendedSessionsByStudentLevelAndCourse(
+    String studentId,
+    int levelNo,
+    String courseId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<AttendanceData>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Attendan/GetAttendedSessionsByStudentLevelAndCourse/${studentId}/${levelNo}/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<AttendanceData> _value;
+    try {
+      _value = _result.data!
+          .map(
+            (dynamic i) => AttendanceData.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<dynamic> getStudentHomeworksRaw(
+    String username,
+    String courseId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Homeworks/homeworks/${username}/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<dynamic> changeHomeworkStatus(
+    String homeworkId,
+    Map<String, dynamic> body,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Homeworks/change-status/${homeworkId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<dynamic> userIncreaseCoins(
+    String userId,
+    Map<String, dynamic> body,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<dynamic>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'User/user-increase-coins/${userId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch(_options);
+    final _value = _result.data;
+    return _value;
+  }
+
+  @override
+  Future<void> updateToken(Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'FcmNotificationV3/update-token',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> deleteNotification(int id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Notifications/${id}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<List<RuleModel>> getRules() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<RuleModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Rules',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<RuleModel> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => RuleModel.fromJson(i as Map<String, dynamic>))
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<void> updateBatchStatus(
+    String batchId,
+    Map<String, dynamic> body,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'BatchesV2/${batchId}/status',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> updateBatch(String batchId, Map<String, dynamic> body) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
+    final _options = _setStreamType<void>(
+      Options(method: 'PUT', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Batches/update/${batchId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  @override
+  Future<void> deleteBatch(String batchId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<void>(
+      Options(method: 'DELETE', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'Batches/${batchId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    await _dio.fetch<void>(_options);
+  }
+
+  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
+  }
+
+  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
+  }
+}

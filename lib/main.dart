@@ -1,9 +1,11 @@
+import 'package:advanced_2/login/views/register_interview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:advanced_2/core/theming/theme_provider.dart';
 import 'package:advanced_2/login/login.dart';
 import 'package:advanced_2/login/views/home_view.dart'; // adjust path if needed
+
 
 final visibilityProvider = StateProvider<bool>((ref) => false);
 
@@ -21,6 +23,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeModeProvider);
+    
 
     return ScreenUtilInit(                    // ← ADD THIS
       designSize: const Size(375, 812),       // iPhone X size (common default)
@@ -49,13 +52,7 @@ class MyApp extends ConsumerWidget {
             useMaterial3: true,
             scaffoldBackgroundColor: const Color.fromARGB(255, 32, 17, 40),
           ),
-          initialRoute: AppRoutes.login,
-          routes: {
-            AppRoutes.login: (context) =>
-                Login(visibilityProvider: visibilityProvider),
-            AppRoutes.home: (context) => const HomeView(),
-          },
-          // Remove the conflicting `home:` line if it still exists
+          home: Login(visibilityProvider: visibilityProvider),// Set the initial route to RegisterInterviewPage
         );
       },
     );

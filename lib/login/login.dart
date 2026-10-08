@@ -169,6 +169,32 @@ class Login extends ConsumerWidget {
                             ),
                           ),
                   ),
+                  const SizedBox(height: 16.0),
+
+// ── Skip for now ──
+SizedBox(
+  width: double.infinity,
+  height: 48,
+  child: TextButton(
+    onPressed: () {
+      // Go to home without logging in
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView()));
+    },
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.grey[600],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+    ),
+    child: const Text(
+      'Skip for now',
+      style: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
+  ),
+),
                 ],
               ),
             ),
